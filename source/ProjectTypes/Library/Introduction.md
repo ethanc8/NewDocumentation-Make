@@ -1,5 +1,4 @@
-Libraries
-=========
+# Introduction to Libraries
 
 Compiling A Library
 -------------------

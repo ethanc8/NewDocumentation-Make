@@ -1,4 +1,4 @@
-# Resource Set Reference
+# Resource Set reference
 
 This is used to install a bunch of resource files somewhere.  It is
 different from a bundle without resources; in a bundle without

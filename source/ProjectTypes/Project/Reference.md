@@ -1,9 +1,10 @@
-# Project Reference
+# Project reference
 
 **Inheritance**: Project *(root class)*
 
 **Project** is the root class for all projects. It is defined in `$(GNUSTEP_MAKEFILES)/rules.make`. It doesn't actually exist -- it's more like a protocol.
 
+(properties)=
 ## Project properties
 
 ````{make:var} xxx_COPY_INTO_DIR
