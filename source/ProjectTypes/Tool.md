@@ -2,7 +2,7 @@
 
 A **tool** is a program that can be called from the command-line. It's useful for testing out ideas or writing command-line tools.
 
-Tools link against Base (FoundationKit), but not against Gui (AppKit). If you need to link against Gui, use {make:var}`xxx_NEEDS_GUI`. If you need a tool that doesn't link against Base, use an [Objective-C Tool](../ObjCTool/Reference.md).
+Tools link against Base (FoundationKit), but not against Gui (AppKit). If you need to link against Gui, use {make:var}`xxx_NEEDS_GUI`. If you need a tool that doesn't link against Base, use an [Objective-C Tool](../ObjCTool.md).
 
 ## Creating a tool
 

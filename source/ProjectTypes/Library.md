@@ -2,7 +2,7 @@
 
 A **library** is an object that other libraries and applications can link to in order to use functions, classes, and constants from the library.
 
-Tools link against Base (FoundationKit), but not against Gui (AppKit). If you need to link against Gui, use {make:var}`xxx_NEEDS_GUI`. If you need a tool that doesn't link against Base, use an [Objective-C Tool](../ObjCTool/Reference.md).
+Tools link against Base (FoundationKit), but not against Gui (AppKit). If you need to link against Gui, use {make:var}`xxx_NEEDS_GUI`. If you need a tool that doesn't link against Base, use an [Objective-C Tool](../ObjCTool.md).
 
 ## Creating a tool
 

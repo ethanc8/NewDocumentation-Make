@@ -5,41 +5,41 @@
 caption: Contents
 hidden: true
 ---
-Project/Reference.md
-ResourceSet/Reference.md
-Tool/Reference.md
+Project.md
+ResourceSet.md
+Tool.md
 Library/index.md
 ```
 
 ## Common Types
 
-* [Project](Project/Reference.md)
-    * [Tool](Tool/Reference.md)
+* [Project](Project.md)
+    * [Tool](Tool.md)
     * Application
-    * [Library](Library/Reference.md)
+    * [Library](Library.md)
 
 ## Inheritance Hierarchy
 
-* [Project](Project/Reference.md)
+* [Project](Project.md)
     * CTool - does *not* inherit from Tool
     * Documentation
     * 
     * SharedBundle
         * Bundle
-        * [ResourceSet](ResourceSet/Reference.md)
+        * [ResourceSet](ResourceSet.md)
         * Application
         * GSWebApplication
-        * [Library](Library/Reference.md)
+        * [Library](Library.md)
             * CLibrary
         * Palette
         * Service
         * Subproject
-        * [Tool](Tool/Reference.md)
+        * [Tool](Tool.md)
     * SharedHeaders
         * Bundle
         * Framework
         * GSWebBundle - deprecated
-        * [Library](Library/Reference.md)
+        * [Library](Library.md)
             * CLibrary
         * Subproject
     * SharedStrings
@@ -48,19 +48,19 @@ Library/index.md
         * Application
         * GSWebApplication
         * GSWebBundle - deprecated
-        * [Library](Library/Reference.md)
+        * [Library](Library.md)
             * CLibrary
         * ObjCTool
         * Palette
         * Service
         * Subproject
-        * [Tool](Tool/Reference.md)
+        * [Tool](Tool.md)
     * SharedJava
         * JavaTool
         * JavaPackage
     * SharedPkgConfig
         * Framework
-        * [Library](Library/Reference.md)
+        * [Library](Library.md)
             * CLibrary
 
 The make library has some Shared* things that are *not* in the inheritance hierarcy, even though they are included by some project types -- they do not define any project type variables.
