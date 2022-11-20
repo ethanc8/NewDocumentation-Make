@@ -123,7 +123,7 @@ Linking a library against another library
 You might need to build a shared library (for example called `libNicola`) which depends on another library (for example on `libHelloWorld`), and requiring the other library to be loaded automatically whenever your library is. We say that your library (`libNicola`) depends on the other one (`libHelloWorld`).
 
 This case is quite simple - you write a usual `GNUmakefile` for your library:
-```objc
+```makefile
 include $(GNUSTEP_MAKEFILES)/common.make
 
 LIBRARY_NAME = libNicola
@@ -133,7 +133,7 @@ include GNUmakefile.preamble
 include $(GNUSTEP_MAKEFILES)/library.make
 ```
 and add a `GNUmakefile.preamble` in which you tell the make package that this library depends on the library `libHelloWorld`:
-```objc
+```makefile
 libNicola_LIBRARIES_DEPEND_UPON += -lHelloWorld
 ```
 

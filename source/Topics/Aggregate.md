@@ -18,13 +18,15 @@ In `MyGame/Server` you keep the source code of your server tool, with its own `G
 
 You can now you add the following `GNUmakefile` in the top-level directory:
 
-    include $(GNUSTEP_MAKEFILES)/common.make
+```makefile
+include $(GNUSTEP_MAKEFILES)/common.make
 
-    PACKAGE_NAME = MyGame
+PACKAGE_NAME = MyGame
 
-    SUBPROJECTS = Server Client
+SUBPROJECTS = Server Client
 
-    include $(GNUSTEP_MAKEFILES)/aggregate.make
+include $(GNUSTEP_MAKEFILES)/aggregate.make
+```
 
 This `GNUmakefile` simply tells to the make package that your project consists of two aggregate subprojects, `Server`, and `Client`. Please note that the make package follows the order you specify, so in this case `Server` is always compiled before `Client` (this could be important if one of your subprojects is a library, and another subproject is an application which needs to be linked against that library: then, you always want the library to be compiled before the application, so the library should come before the application in the list of subprojects).
 
@@ -32,7 +34,9 @@ In this example, we have two aggregate subprojects, but you can have any number 
 
 At this point you are ready. Typing
 
-    make
+```bash
+make
+```
 
 in the top-level directory will cause the make package to step into the `Server` subdirectory, and run `make` there, and then step into the `Client` subdirectory, and run `make` there.
 
@@ -43,6 +47,4 @@ Aggregate subprojects can be nested, so that for example the `Server` project co
 Serial and parallel subdirectories
 ----------------------------------
 
-Starting with version 2.4.0, gnustep-make supports two new ways of organizing multi-directory projects. From 2.4.0 you can use serial-subdirectories.make and parallel-subdirectories.make instead of aggregate.make to better control how you want the build to be done when using parallel building. Please check the forthcoming “Parallel Building” Tutorial for more information.
-
-At the moment, for maximum compatibility with older versions of gnustep-make, using aggregate.make is still the recommended way of controlling subdirectories. We mentioned the existence of serial-subdirectories.make and parallel-subdirectories.make so that you know what they are in case you stumble upon them.
+Starting with version 2.4.0, gnustep-make supports two new ways of organizing multi-directory projects. From 2.4.0 you can use `serial-subdirectories.make` and `parallel-subdirectories.make` instead of aggregate.make to better control how you want the build to be done when using parallel building. Please check the forthcoming [“Parallel Building” Tutorial](ParallelBuilding.md) for more information.

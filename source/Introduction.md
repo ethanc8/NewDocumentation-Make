@@ -12,8 +12,8 @@ Let’s try it out by making a little command line tool using the GNUstep make p
 #import <Foundation/Foundation.h>
 
 int main (void) { 
-    NSLog (@"Hello World!");
-    return 0;
+	NSLog (@"Hello World!");
+	return 0;
 }
 ```
 
@@ -91,9 +91,9 @@ to find out.
 
 By default, executables are created with debugging enabled. This means that they are created with debugging symbols, i.e., compiled with the `-g` option (which is useful for debugging it with gdb), and compiled using the `-DDEBUG` compiler flag (which defines the preprocessor macro `DEBUG` during the compilation). In this way, you may isolate code to be executed only when compiling with the debug option typically as follows:
 
-```bash
+```objc
 #ifdef DEBUG 
-    /* Code compiled in only when debug=yes */
+	/* Code compiled in only when debug=yes */
 #endif
 ```
 
@@ -115,16 +115,16 @@ Let’s try now to compile an application. Modify our source file `source.m` to 
 #import <AppKit/AppKit.h>
 
 int main (void) {
-    NSAutoreleasePool *pool;
-    
-    pool = [NSAutoreleasePool new];
-    
-    [NSApplication sharedApplication];
-    
-    NSRunAlertPanel (@"Test", @"Hello from the GNUstep AppKit", 
-                    nil, nil, nil);
+	NSAutoreleasePool *pool;
+	
+	pool = [NSAutoreleasePool new];
+	
+	[NSApplication sharedApplication];
+	
+	NSRunAlertPanel (@"Test", @"Hello from the GNUstep AppKit", 
+					nil, nil, nil);
 
-    return 0;
+	return 0;
 }
 ```
 
@@ -152,7 +152,9 @@ openapp ./PanelTest.app
 
 Debugging an application is quite simple. Applications, like tools and everything else, are compiled with debugging enabled by default; to debug the application, use
 
-    openapp --debug ./PanelTest.app
+```bash
+openapp --debug ./PanelTest.app
+```
 
 This will run `gdb` (the GNU debugger) on the executable setting everything ready for debugging.
 
@@ -161,47 +163,57 @@ This will run `gdb` (the GNU debugger) on the executable setting everything read
 
 You may happen to need to pass additional flags to the compiler (in order to link with additional libraries, for example) or to be willing to perform some additional actions after compilation or installation. The standard way of doing this is as follows: add a file called `GNUmakefile.preamble` to your project directory. An example of a `GNUmakefile.preamble` is the following:
 
-    ADDITIONAL_OBJCFLAGS += -Wextra
+```makefile
+ADDITIONAL_OBJCFLAGS += -Wextra
+```
 
 This simply adds the `-Wextra` flag when compiling, which causes GCC to print a lot more warnings than it would normally do. In general, you would use a `GNUmakefile.preamble` to add any additional flags you need (to tell the compiler/linker to search additional directories upon compiling/linking, to link with additional libraries, etc).
 
 Now, you would want your `GNUmakefile` to include the contents of your `GNUmakefile.preamble` before any processing. This is usually done as follows:
 
-    include $(GNUSTEP_MAKEFILES)/common.make
+```makefile
+include $(GNUSTEP_MAKEFILES)/common.make
 
-    APP_NAME = PanelTest
-    PanelTest_OBJC_FILES = source.m
+APP_NAME = PanelTest
+PanelTest_OBJC_FILES = source.m
 
-    include GNUmakefile.preamble
-    include $(GNUSTEP_MAKEFILES)/application.make
+include GNUmakefile.preamble
+include $(GNUSTEP_MAKEFILES)/application.make
+```
 
 The most important thing to notice is that the `GNUmakefile.preamble` is included *before* `application.make`. That is why is called a preamble.
 
 Sometimes you also see people using
 
-    -include GNUmakefile.preamble
+```makefile
+-include GNUmakefile.preamble
+```
 
 (with a hyphen, `-`, prepended). The hyphen before `include` tells the make tool not to complain if the file `GNUmakefile.preamble` is not found. If you want to make sure that the `GNUmakefile.preamble` is included, you should better not use the hyphen.
 
 If you want to perform any special operation after the GNUmakefile package has done its work, you usually put them in a `GNUmakefile.postamble` file. The `GNUmakefile.postamble` is included *after* `application.make`; that is why is called a postamble:
 
-    include $(GNUSTEP_MAKEFILES)/common.make
+```makefile
+include $(GNUSTEP_MAKEFILES)/common.make
 
-    APP_NAME = PanelTest
-    PanelTest_OBJC_FILES = source.m
+APP_NAME = PanelTest
+PanelTest_OBJC_FILES = source.m
 
-    include GNUmakefile.preamble
-    include $(GNUSTEP_MAKEFILES)/application.make
-    include GNUmakefile.postamble
+include GNUmakefile.preamble
+include $(GNUSTEP_MAKEFILES)/application.make
+include GNUmakefile.postamble
+```
 
 Here is a concrete example of a `GNUmakefile.postamble`:
 
-    after-install::
-            $(MKINSTALLDIRS) /home/nicola/SpecialTools; \
-            cd $(GNUSTEP_OBJ_DIR); \
-            $(INSTALL) myTool /home/nicola/SpecialTools;
+```makefile
+after-install::
+		$(MKINSTALLDIRS) /home/nicola/SpecialTools; \
+		cd $(GNUSTEP_OBJ_DIR); \
+		$(INSTALL) myTool /home/nicola/SpecialTools;
+```
 
-(make sure you start each indented line with `TAB`). This will install the tool `myTool` in the directory `/home/nicola/SpecialTools` after the standard installation has been performed.
+(make sure you start each indented line with <kbd>TAB</kbd>). This will install the tool `myTool` in the directory `/home/nicola/SpecialTools` after the standard installation has been performed.
 
 You rarely need to use `GNUmakefile.postamble`s, and they were mentioned mainly to give you a complete picture.
 
