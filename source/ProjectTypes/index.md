@@ -8,7 +8,7 @@ hidden: true
 Project.md
 ResourceSet.md
 Tool.md
-Library/index.md
+Library.md
 ```
 
 ## Common Types

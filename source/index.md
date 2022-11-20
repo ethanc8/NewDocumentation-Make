@@ -10,6 +10,7 @@ titlesonly: true
 Introduction.md
 Topics/index.md
 ProjectTypes/index.md
+CommonVariables/Flags.md
 ```
 
 ## Copyright

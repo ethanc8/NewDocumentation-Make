@@ -4,7 +4,7 @@ Makefiles: [Top-level](https://github.com/gnustep/tools-make/blob/master/library
 
 A **library** is an object that other libraries and applications can link to in order to use functions, classes, and constants from the library.
 
-Tools link against Base (FoundationKit), but not against Gui (AppKit). If you need to link against Gui, use {make:var}`xxx_NEEDS_GUI`. If you need a tool that doesn't link against Base, use an [Objective-C Tool](../ObjCTool.md).
+By default, libraries link against Base (FoundationKit), but not against Gui (AppKit). If you need to link against Gui, use {make:var}`xxx_NEEDS_GUI`.
 
 ## Creating a tool
 
@@ -21,9 +21,9 @@ include $(GNUSTEP_MAKEFILES)/tool.make
 ```
 
 (properties)=
-## Tool properties
+## Library properties
 
-Tool also inherits [Project properties](../Project/Reference.md#properties).
+Library also inherits [Project properties](../Project/Reference.md#properties).
 
 ```{make:var} xxx_HEADER_FILES
 The list of header filenames that are to be installed with the library. If a filename has a directory path prefixed to it then that prefix will be maintained when the headers are installed. It is up to the user to make sure that the installation directory exists; otherwise, an error will occur when the library is installed, see {make:var}`xxx_HEADER_FILES_INSTALL_DIR`.
