@@ -141,6 +141,5 @@ libNicola_LIBRARIES_DEPEND_UPON += -lHelloWorld
 GNUstep make is not a package manager. It will not detect whether `libHelloWorld` is installed. It will not ensure that the correct version of `libHelloWorld` is installed. It will not automatically install or update `libHelloWorld`.
 ```
 
-```{admonition} Editor's note
-I'm starting to doubt how logical the `GNUmakefile`-`GNUmakefile.preamble` separation is.
-```
+You can also put `libNicola_LIBRARIES_DEPEND_UPON` in your `GNUmakefile`. The reason `GNUmakefile.preamble` is used is because it allows you to change these variables when ProjectCenter.app or another IDE manages your `GNUmakefile` and overwrites your changes.
+

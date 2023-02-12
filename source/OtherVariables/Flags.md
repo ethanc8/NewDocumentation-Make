@@ -57,7 +57,6 @@ By default the Makefile Package will generate a shared library if it is building
 make shared=no
 ```
 This default is only applicable on systems that support shared libraries; systems that do not support shared libraries will always build using static libraries. Some systems support dynamic link libraries (DLL) which are a form of shared libraries; on these systems, DLLs will be built by default unless the Makefile Package is told to build using static libraries instead, as in the above command. 
-```
 ````
 
 ````{make:var} profile

@@ -21,7 +21,7 @@ include $(GNUSTEP_MAKEFILES)/tool.make
 (properties)=
 ## Tool properties
 
-Tool also inherits [Project properties](../Project/Reference.md#properties).
+Tool also inherits [Project properties](Project.md).
 
 ```{make:var} xxx_INSTALL_DIR
 This is the directory where the tool gets installed. If you don't specify a directory it will get installed in the GNUstep Local Root (by default `/usr/GNUstep/Local` on Unix-like systems). The tool executable will get installed in *root*`/Tools`.
