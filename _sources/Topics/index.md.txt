@@ -9,4 +9,5 @@ Subproject.md
 MultipleTypes.md
 Aggregate.md
 ParallelBuilding.md
+LibraryIntroduction.md
 ```

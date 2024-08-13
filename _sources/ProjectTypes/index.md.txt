@@ -8,6 +8,7 @@ hidden: true
 Project.md
 ResourceSet.md
 Tool.md
+Application.md
 Library.md
 ```
 
@@ -15,7 +16,7 @@ Library.md
 
 * [Project](Project.md)
     * [Tool](Tool.md)
-    * Application
+    * [Application](Application.md)
     * [Library](Library.md)
 
 ## Inheritance Hierarchy
@@ -27,7 +28,7 @@ Library.md
     * SharedBundle
         * Bundle
         * [ResourceSet](ResourceSet.md)
-        * Application
+        * [Application](Application.md)
         * GSWebApplication
         * [Library](Library.md)
             * CLibrary
@@ -45,7 +46,7 @@ Library.md
     * SharedStrings
         * Bundle
         * Framework
-        * Application
+        * [Application](Application.md)
         * GSWebApplication
         * GSWebBundle - deprecated
         * [Library](Library.md)

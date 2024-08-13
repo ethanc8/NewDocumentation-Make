@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Project reference" href="Project.html" /><link rel="prev" title="Introduction to Libraries" href="../Topics/LibraryIntroduction.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Library reference" href="Library.html" /><link rel="prev" title="Tool reference" href="Tool.html" />
 
     <!-- Generated with Sphinx 7.1.2 and Furo 2024.08.06 -->
-        <title>Project Types - GNUstep Make 2.9.0 documentation</title>
+        <title>Application reference - GNUstep Make 2.9.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -211,11 +211,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../Topics/LibraryIntroduction.html">Introduction to Libraries</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">Project Types</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Project Types</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Project Types</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Project Types</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Project.html">Project reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ResourceSet.html">Resource Set reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Tool.html">Tool reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Application.html">Application reference</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Application reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Library.html">Library reference</a></li>
 </ul>
 </li>
@@ -244,7 +244,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/ProjectTypes/index.md.txt" title="View this page">
+  <a class="muted-link" href="../_sources/ProjectTypes/Application.md.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -264,111 +264,52 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="project-types">
-<h1>Project Types<a class="headerlink" href="#project-types" title="Permalink to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
+          <section id="application-reference">
+<h1>Application reference<a class="headerlink" href="#application-reference" title="Permalink to this heading">¶</a></h1>
+<p><strong>Makefiles:</strong> <a class="reference external" href="https://github.com/gnustep/tools-make/blob/master/application.make">Top-level</a> | <a class="reference external" href="https://github.com/gnustep/tools-make/blob/master/Instance/application.make">Instance</a> | <a class="reference external" href="https://github.com/gnustep/tools-make/blob/master/Master/application.make">Master</a></p>
+<p><strong>Inheritance:</strong> <a class="reference internal" href="Project.html"><span class="std std-doc">Project</span></a> → SharedBundle → <strong>Application</strong></p>
+<p>An <strong>application</strong> is a program that has its own <code class="docutils literal notranslate"><span class="pre">.app</span></code> bundle with its own resources,</p>
+<section id="creating-an-application">
+<h2>Creating an application<a class="headerlink" href="#creating-an-application" title="Permalink to this heading">¶</a></h2>
+<dl class="make var">
+<dt class="sig sig-object make" id="var-APP_NAME">
+<span class="sig-name descname"><span class="pre">APP_NAME</span></span><a class="headerlink" href="#var-APP_NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>The list of all applications in this GNUmakefile.</p>
+</dd></dl>
+
+<div class="highlight-makefile notranslate"><div class="highlight"><pre><span></span><span class="cp">include $(GNUSTEP_MAKEFILES)/common.make</span>
+
+<span class="nv">APP_NAME</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;Your<span class="w"> </span>tool<span class="w"> </span>name<span class="w"> </span>here&gt;
+
+<span class="cp">include $(GNUSTEP_MAKEFILES)/application.make</span>
+</pre></div>
 </div>
-<section id="common-types">
-<h2>Common Types<a class="headerlink" href="#common-types" title="Permalink to this heading">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="Project.html"><span class="std std-doc">Project</span></a></p>
-<ul>
-<li><p><a class="reference internal" href="Tool.html"><span class="std std-doc">Tool</span></a></p></li>
-<li><p><a class="reference internal" href="Application.html"><span class="std std-doc">Application</span></a></p></li>
-<li><p><a class="reference internal" href="Library.html"><span class="std std-doc">Library</span></a></p></li>
-</ul>
-</li>
-</ul>
 </section>
-<section id="inheritance-hierarchy">
-<h2>Inheritance Hierarchy<a class="headerlink" href="#inheritance-hierarchy" title="Permalink to this heading">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="Project.html"><span class="std std-doc">Project</span></a></p>
-<ul>
-<li><p>CTool - does <em>not</em> inherit from Tool</p></li>
-<li><p>Documentation</p></li>
-<li></li>
-<li><p>SharedBundle</p>
-<ul>
-<li><p>Bundle</p></li>
-<li><p><a class="reference internal" href="ResourceSet.html"><span class="std std-doc">ResourceSet</span></a></p></li>
-<li><p><a class="reference internal" href="Application.html"><span class="std std-doc">Application</span></a></p></li>
-<li><p>GSWebApplication</p></li>
-<li><p><a class="reference internal" href="Library.html"><span class="std std-doc">Library</span></a></p>
-<ul>
-<li><p>CLibrary</p></li>
-</ul>
-</li>
-<li><p>Palette</p></li>
-<li><p>Service</p></li>
-<li><p>Subproject</p></li>
-<li><p><a class="reference internal" href="Tool.html"><span class="std std-doc">Tool</span></a></p></li>
-</ul>
-</li>
-<li><p>SharedHeaders</p>
-<ul>
-<li><p>Bundle</p></li>
-<li><p>Framework</p></li>
-<li><p>GSWebBundle - deprecated</p></li>
-<li><p><a class="reference internal" href="Library.html"><span class="std std-doc">Library</span></a></p>
-<ul>
-<li><p>CLibrary</p></li>
-</ul>
-</li>
-<li><p>Subproject</p></li>
-</ul>
-</li>
-<li><p>SharedStrings</p>
-<ul>
-<li><p>Bundle</p></li>
-<li><p>Framework</p></li>
-<li><p><a class="reference internal" href="Application.html"><span class="std std-doc">Application</span></a></p></li>
-<li><p>GSWebApplication</p></li>
-<li><p>GSWebBundle - deprecated</p></li>
-<li><p><a class="reference internal" href="Library.html"><span class="std std-doc">Library</span></a></p>
-<ul>
-<li><p>CLibrary</p></li>
-</ul>
-</li>
-<li><p>ObjCTool</p></li>
-<li><p>Palette</p></li>
-<li><p>Service</p></li>
-<li><p>Subproject</p></li>
-<li><p><a class="reference internal" href="Tool.html"><span class="std std-doc">Tool</span></a></p></li>
-</ul>
-</li>
-<li><p>SharedJava</p>
-<ul>
-<li><p>JavaTool</p></li>
-<li><p>JavaPackage</p></li>
-</ul>
-</li>
-<li><p>SharedPkgConfig</p>
-<ul>
-<li><p>Framework</p></li>
-<li><p><a class="reference internal" href="Library.html"><span class="std std-doc">Library</span></a></p>
-<ul>
-<li><p>CLibrary</p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>The make library has some Shared* things that are <em>not</em> in the inheritance hierarcy, even though they are included by some project types – they do not define any project type variables.</p>
+<section id="application-properties">
+<span id="properties"></span><h2>Application properties<a class="headerlink" href="#application-properties" title="Permalink to this heading">¶</a></h2>
+<p>Application also inherits <a class="reference internal" href="Project.html"><span class="std std-doc">Project properties</span></a>.</p>
+<dl class="make var">
+<dt class="sig sig-object make" id="var-xxx_INSTALL_DIR">
+<span class="sig-name descname"><span class="pre">xxx_INSTALL_DIR</span></span><a class="headerlink" href="#var-xxx_INSTALL_DIR" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the directory where the app gets installed. If you don’t specify a directory it will get installed in the GNUstep Local Root (by default <code class="docutils literal notranslate"><span class="pre">/usr/GNUstep/Local</span></code> on Unix-like systems). The tool executable will get installed in <code class="docutils literal notranslate"><span class="pre">$(gnustep-config</span> <span class="pre">--variable=GNUSTEP_LOCAL_APPS)</span></code> (typically <em>root</em><code class="docutils literal notranslate"><span class="pre">/Applications</span></code>).</p>
+</dd></dl>
+
+<dl class="make var">
+<dt class="sig sig-object make" id="var-xxx_HAS_RESOURCE_BUNDLE">
+<span class="sig-name descname"><span class="pre">xxx_HAS_RESOURCE_BUNDLE</span></span><a class="headerlink" href="#var-xxx_HAS_RESOURCE_BUNDLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>If this variable is <code class="docutils literal notranslate"><span class="pre">yes</span></code>, then GNUstep Make will build a resource bundle for the tool, and install it. You can then add resources to the tool with the usual xxx_RESOURCE_FILES, xxx_LOCALIZED_RESOURCE_FILES, xxx_LANGUAGES, etc – see (Resource Set Reference)[../ResourceSet/Reference.md]. <code class="docutils literal notranslate"><span class="pre">xxx</span></code> will be the same as the name of the tool.</p>
+<p>The tool resource bundle (and all resources inside it) can be accessed at runtime very comfortably, by using gnustep-base’s <code class="docutils literal notranslate"><span class="pre">[NSBundle</span> <span class="pre">mainBundle]</span></code> (exactly as you would do for an application).</p>
+</dd></dl>
+
 </section>
-<section id="licensing">
-<h2>Licensing<a class="headerlink" href="#licensing" title="Permalink to this heading">¶</a></h2>
-<p>This file is part of the GNUstep Makefile Package.</p>
-<p>This library is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 3
-of the License, or (at your option) any later version.</p>
-<p>You should have received a copy of the GNU General Public
-License along with this library; see the file COPYING.
-If not, write to the Free Software Foundation,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.</p>
+<section id="global-configuration-variables">
+<h2>Global configuration variables<a class="headerlink" href="#global-configuration-variables" title="Permalink to this heading">¶</a></h2>
+<dl class="make var">
+<dt class="sig sig-object make" id="var-TOOL_INSTALL_DIR">
+<span class="sig-name descname"><span class="pre">TOOL_INSTALL_DIR</span></span><a class="headerlink" href="#var-TOOL_INSTALL_DIR" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the directory where the tool gets installed. If you don’t specify a directory it will get installed in the GNUstep Local Root (by default <code class="docutils literal notranslate"><span class="pre">/usr/GNUstep/Local</span></code> on Unix-like systems). The tool executable will get installed in <em>root</em><code class="docutils literal notranslate"><span class="pre">/Tools</span></code>.</p>
+</dd></dl>
+
 </section>
 </section>
 
@@ -377,23 +318,23 @@ If not, write to the Free Software Foundation,
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="Project.html">
+          <a class="next-page" href="Library.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Project reference</div>
+                <div class="title">Library reference</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../Topics/LibraryIntroduction.html">
+          <a class="prev-page" href="Tool.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Introduction to Libraries</div>
+                <div class="title">Tool reference</div>
                 
               </div>
             </a>
@@ -427,10 +368,10 @@ If not, write to the Free Software Foundation,
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Project Types</a><ul>
-<li><a class="reference internal" href="#common-types">Common Types</a></li>
-<li><a class="reference internal" href="#inheritance-hierarchy">Inheritance Hierarchy</a></li>
-<li><a class="reference internal" href="#licensing">Licensing</a></li>
+<li><a class="reference internal" href="#">Application reference</a><ul>
+<li><a class="reference internal" href="#creating-an-application">Creating an application</a></li>
+<li><a class="reference internal" href="#application-properties">Application properties</a></li>
+<li><a class="reference internal" href="#global-configuration-variables">Global configuration variables</a></li>
 </ul>
 </li>
 </ul>

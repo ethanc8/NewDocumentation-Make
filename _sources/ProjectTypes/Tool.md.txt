@@ -1,8 +1,12 @@
 # Tool reference
 
+**Makefiles:** [Top-level](https://github.com/gnustep/tools-make/blob/master/tool.make) | [Instance](https://github.com/gnustep/tools-make/blob/master/Instance/tool.make) | [Master](https://github.com/gnustep/tools-make/blob/master/Master/tool.make)
+
+**Inheritance:** [Project](Project.md) &rarr; SharedBundle &rarr; **Tool**
+
 A **tool** is a program that can be called from the command-line. It's useful for testing out ideas or writing command-line tools.
 
-Tools link against Base (FoundationKit), but not against Gui (AppKit). If you need to link against Gui, use {make:var}`xxx_NEEDS_GUI`. If you need a tool that doesn't link against Base, use an [Objective-C Tool](../ObjCTool.md).
+Tools link against Base (FoundationKit), but not against Gui (AppKit). If you need to link against Gui, use {make:var}`xxx_NEEDS_GUI`. If you need a tool that doesn't link against Base, use an [Objective-C Tool](ObjCTool.md).
 
 ## Creating a tool
 
