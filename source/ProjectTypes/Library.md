@@ -1,13 +1,5 @@
 # Library reference
 
-```{toctree}
----
-caption: Contents
-hidden: true
----
-LibraryIntroduction.md
-```
-
 **Makefiles:** [Top-level](https://github.com/gnustep/tools-make/blob/master/library.make) | [Instance](https://github.com/gnustep/tools-make/blob/master/Instance/library.make) | [Master](https://github.com/gnustep/tools-make/blob/master/Master/library.make)
 
 **Inheritance:** [Project](Project.md) &rarr; SharedBundle &rarr; **Library**
